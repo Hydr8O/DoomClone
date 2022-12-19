@@ -1,0 +1,14 @@
+cmake_minimum_required(VERSION 3.0.0)
+project(doom_clone VERSION 0.1.0)
+add_subdirectory(lib)
+add_subdirectory(vendor)
+include(CTest)
+enable_testing()
+
+add_executable(doom_clone main.cpp)
+
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)
+target_include_directories(doom_clone PRIVATE ${CMAKE_SOURCE_DIR}/lib/application/include)
+target_link_libraries(doom_clone application)
