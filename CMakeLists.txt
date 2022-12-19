@@ -6,9 +6,9 @@ include(CTest)
 enable_testing()
 
 add_executable(doom_clone main.cpp)
-
+find_package(OpenGL REQUIRED)
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
-target_include_directories(doom_clone PRIVATE ${CMAKE_SOURCE_DIR}/lib/application/include)
-target_link_libraries(doom_clone application)
+target_include_directories(doom_clone PRIVATE ${CMAKE_SOURCE_DIR}/lib/application/include ${CMAKE_SOURCE_DIR}/vendor/glad/include)
+target_link_libraries(doom_clone application glfw glm glad)
