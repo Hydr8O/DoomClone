@@ -1,1 +1,3 @@
-void print();
+#pragma once
+
+void open_window();
